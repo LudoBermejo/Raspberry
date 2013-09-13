@@ -1,4 +1,4 @@
 Raspberry
 =========
 
-Rasberry
+Scripts and software for Raspberry 
