@@ -1,0 +1,31 @@
+# like in http://blog.scphillips.com/2013/01/using-a-raspberry-pi-with-android-phones-for-media-streaming/#network
+
+
+In  /etc/network/interface
+
+auto lo
+ 
+iface lo inet loopback
+iface eth0 inet dhcp
+ 
+allow-hotplug wlan0
+iface wlan0 inet manual
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+iface default inet dhcp
+
+
+In /etc/wpa_supplicant/wpa_supplicant.conf 
+
+network={
+  ssid="your_ssid_goes_here"
+  scan_ssid=1
+  proto=RSN
+  key_mgmt=WPA-PSK
+  pairwise=TKIP
+  psk="this is where your secret passphrase goes"
+}
+
+Check with ifconfig
+
+
+
